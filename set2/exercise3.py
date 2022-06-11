@@ -238,6 +238,7 @@ def loops_6():
     return wedge_block
 
 
+
 def loops_7():
     """Make a pyramid.
 
@@ -259,13 +260,19 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-
+    
     star_pyramid = []
     for i in range(5):
-        pyramid_row = []
-        for j in range(j, pyramid_row):
-            pyramid_row.append("*")
-        star_pyramid.append(pyramid_row)
+        star_row = []
+        for j in range(i, 4):
+            star_row.append(" ")
+        for j in range (i):
+            star_row.append("*")
+        for j in range (i + 1):
+            star_row.append("*")
+        for j in range(j, 4):
+            star_row.append(" ")
+        star_pyramid.append(star_row)
     return star_pyramid
 
 
