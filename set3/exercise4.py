@@ -2,6 +2,7 @@
 """Set 3, Exercise 4."""
 
 import math
+from queue import LifoQueue
 
 
 def binary_search(low, high, actual_number):
@@ -24,8 +25,22 @@ def binary_search(low, high, actual_number):
     tries = 0
     guess = 0
 
+    
     # Write your code in here
-
+    print (f"Give a number between {low} and {high}")
+    while low <= high:
+         mid = (high - low)/2 + low
+         guess = int(input("Guess a number: "))
+         print(f"You guessed: {guess}")
+         if guess == actual_number:
+            print(f"You got it!! It was {guess}")
+            return actual_number
+         elif guess < actual_number:
+            low = guess
+            print(f"{guess} is too low, try again")
+         else: 
+            high = guess
+            print(f"{guess} is too high, try again")
     return {"guess": guess, "tries": tries}
 
 
