@@ -23,23 +23,19 @@ def binary_search(low, high, actual_number):
     things much easier.
     """
     tries = 0
-    guess = 0
+
 
     # Write your code in here
     print (f"Give a number between {low} and {high}")
-    while low <= high:
-         mid = (high - low)/2 + low
-         guess = int(input("Guess a number: "))
-         print(f"You guessed: {guess}")
-         if guess == actual_number:
-            print(f"You got it!! It was {guess}")
-            return {"guess": guess, "tries": tries}
-         elif guess < actual_number:
-            low = guess
-            print(f"{guess} is too low, try again")
+    while True:
+         mid = int((high - low)/2 + low)
+         if mid == actual_number:
+            return {"guess": mid, "tries": tries}
+         elif mid < actual_number:
+            low = mid
          else: 
-            high = guess
-            print(f"{guess} is too high, try again")
+            high = mid
+         tries += 1
 
 
 if __name__ == "__main__":
