@@ -3,6 +3,7 @@
 
 import json
 import os
+from tkinter import W
 from unicodedata import name
 from unittest import result
 import requests
@@ -84,13 +85,21 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pyramid = []
-    for i in range(3,20,2):
-        url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}"
-        response = requests.get(url)
+
+    def get_word(length):       
+        url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+        response = requests.get(url)       
         word = response.text
-        for j in range(20,3,2):
-            word = response.text
+        return word
+
+
+    pyramid = []
+    for i in range(3,20,2):        
+        word = get_word(i)        
+        pyramid.append(word)
+
+    for i in range(20, 3, -2):      
+        word = get_word(i)       
         pyramid.append(word)
 
     return pyramid
@@ -110,11 +119,14 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    id = 5
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
+
+    # assuming low is always lower than high
+    for id in range(low, high):
+        # make a request
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
 
     return {"name": None, "weight": None, "height": None}
 
