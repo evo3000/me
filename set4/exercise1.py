@@ -92,7 +92,6 @@ def wordy_pyramid():
         word = response.text
         return word
 
-
     pyramid = []
     for i in range(3,20,2):        
         word = get_word(i)        
@@ -119,16 +118,25 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-
-    # assuming low is always lower than high
+    # pull pokelist from URL
+    poke_list = []
     for id in range(low, high):
-        # make a request
         url = f"https://pokeapi.co/api/v2/pokemon/{id}"
         r = requests.get(url)
         if r.status_code is 200:
-            the_json = json.loads(r.text)
+            the_json = r.json()
+            poke_list.append(the_json)
 
-    return {"name": None, "weight": None, "height": None}
+    #put tallest poke in list 
+    tallest_poke = {}
+    for poke in poke_list:
+        if poke["height"] > tallest_poke.get("height",0):
+            tallest_poke = poke
+        pokemon = tallest_poke["name"]
+        pokeweight = tallest_poke["weight"]
+        pokeheight = tallest_poke["height"]
+
+    return {"name": pokemon, "weight": pokeweight, "height": pokeheight}
 
 
 def diarist():
@@ -148,7 +156,14 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    pass
+
+    with open(LOCAL + "/Trispokedovetiles(laser).gcode", "r", encoding="utf-8") as gcode:
+        data = gcode.read()
+        count = data.count('M10 P1')
+
+    with open(LOCAL + "lasers.pew", "w", encoding="utf-8") as num_pew:
+        num_pew.write(f"{count}")
+
 
 
 if __name__ == "__main__":
