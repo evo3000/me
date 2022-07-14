@@ -157,12 +157,18 @@ def diarist():
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
 
-    with open(LOCAL + "/Trispokedovetiles(laser).gcode", "r", encoding="utf-8") as gcode:
-        data = gcode.read()
-        count = data.count('M10 P1')
+    file = open("set4\Trispokedovetiles(laser).gcode")
+    data = file.read()
+    count = data.count("M10 P1")
 
-    with open(LOCAL + "lasers.pew", "w", encoding="utf-8") as num_pew:
-        num_pew.write(f"{count}")
+    if count >= 1:
+        file_name = "lasers.pew"
+        filepath = os.path.join("set4", file_name)
+        f = open(filepath, "a+")
+        f.write(str(count))
+        f.close()
+    else:
+        ValueError
 
 
 
