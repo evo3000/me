@@ -1,5 +1,7 @@
 # -*- coding: UTF-8 -*-
 
+from ast import Return
+from random import randint
 import requests
 
 """REFACTORING
@@ -30,32 +32,30 @@ def wordy_pyramid():
         "give_me_a_word?wordlength={length}"
     )
     pyramid_list = []
-    for i in range(3, 21, 2):
-        url = baseURL.format(length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.text
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-    for i in range(20, 3, -2):
-        url = baseURL.format(length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.text
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-
+    list_1 = list_of_words_with_lengths(list_of_lengths=[3,21,2])
+    list_2 = list_of_words_with_lengths(list_of_lengths=[20,3,-2])
+    pyramid_list = list_1 + list_2
+    
     return pyramid_list
 
 
+
 def get_a_word_of_length_n(length):
-    pass
+    url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+    response = requests.get(url)       
+    if response.status_code is 200:
+        word = response.text
+        return word
+    else:
+        ValueError
+
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pass
+    pyramid_list = []
+    for length in range(list_of_lengths[0],list_of_lengths[1], list_of_lengths[2]):
+        pyramid_list.append(get_a_word_of_length_n(length))
+    return pyramid_list
 
 
 if __name__ == "__main__":
