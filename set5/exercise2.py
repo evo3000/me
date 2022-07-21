@@ -91,24 +91,33 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-    def apply_rules(letter, guard):
+    def apply_rules(letter):
         """Control the substitution.
 
         You need to change these substitutions to make it work.
 
         Hint: when guard == -1 return the letter.
         """
+    
         if letter == "a":
-            return "a"
+            return "bba"
         elif letter == "b":
-            return "b"
+            return "aob"
         elif letter == "o":
-            return "o"
+            return "oa"
         else:
             return letter
 
-        if 
-    pass
+    # write the rest of the function here
+    parts = list(source)
+    result = list(map(apply_rules, parts))
+    new_string = "".join(result)
+    guard -= 1
+    if guard > 0:
+        return abba(new_string, guard)
+    else:
+        return new_string 
+
 
 
 def koch(t, order, size):
@@ -134,7 +143,7 @@ def draw_koch(drawing_method, steps_deep=4):
     https://docs.python.org/3/library/turtle.html
     """
     raphael = turtle.Turtle()
-    raphael.speed(1000)
+    raphael.speed(10)
     raphael.penup()
     raphael.goto(-300, 0)
     raphael.pendown()
@@ -151,8 +160,12 @@ def square_koch(t, order, size):
     Leave the turtle facing the same direction.
 
     """
+
+
     trace = ""
     # write the rest of the function here.
+
+
     return str(order) + trace
     pass
 

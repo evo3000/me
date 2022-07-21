@@ -161,19 +161,19 @@
   },
   {
     "of_total": 15,
-    "mark": 8,
+    "mark": 9,
     "results": [
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n ytter"
+        "name": "exercise 1: get_a_word_of_length_n aahed"
       },
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n eaceworm"
+        "name": "exercise 1: get_a_word_of_length_n yardages"
       },
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n yaya"
+        "name": "exercise 1: get_a_word_of_length_n iwis"
       },
       {
         "value": 1,
@@ -192,7 +192,7 @@
         "name": "exercise 1: list_of_words_with_lengths {word}"
       },
       {
-        "value": 0,
+        "value": 1,
         "name": "exercise 1: wordy_pyramid has been refactored"
       },
       {
