@@ -138,9 +138,10 @@ def set_it_on_fire(input_string="very naughty boy") -> str:
     TIP: make sure that you have a 🔥 on both ends of the string.
     """
     fire_string = input_string.upper()
+    llist = list(fire_string)
     fire = "🔥"
-    fire_list = ["".join(i for j in zip(fire, fire_string) for i in j)]
-    return fire_list
+    fire_list = fire.join(llist)
+    return fire + fire_list + fire
 
 
 def pet_filter(letter="a") -> List:
@@ -158,9 +159,10 @@ def pet_filter(letter="a") -> List:
     ]
     # fmt: on
    
-
-    if letter in pets:
-            filtered = []
+    filtered = []
+    for word in pets:
+        if letter in word:
+            filtered.append(word)
     return filtered
 
 
@@ -172,11 +174,15 @@ def best_letter_for_pets() -> str:
     TIP: use the function you just wrote to help you here!
     TIP: you've seen this before in the pokedex.
     """
-    import string
 
     the_alphabet = string.ascii_lowercase
-    most_popular_letter = ""
-
+    most_popular_letter = "0"
+    mx = 0
+    for i in the_alphabet:
+        j = pet_filter(i)
+        if len(j) > mx:
+            mx = len(j)
+            most_popular_letter = str(i)
     return most_popular_letter
 
 
