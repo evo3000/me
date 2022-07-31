@@ -160,17 +160,19 @@ def square_koch(t, order, size):
     Leave the turtle facing the same direction.
 
     """
+    trace = ""
     if order == 0:          # The base case is just a straight line
         t.forward(size)
     else:
-        trace += square_koch(t, order-1, size/4)   # Go 1/3 of the way
-        t.left(45)
+        trace += square_koch(t, order-1, size/4)   # Go 1/4 of the way
+        t.left(90)
         trace += square_koch(t, order-1, size/4)
         t.right(90)
         trace += square_koch(t, order-1, size/4)
         t.right(90)       
         trace += square_koch(t, order-1, size/4)
-        t.left(40)
+        t.left(90)
+        trace += square_koch(t, order -1, size/ 4)
     return str(order) + trace
 
 

@@ -53,7 +53,7 @@ def get_a_word_of_length_n(length):
 
 def list_of_words_with_lengths(list_of_lengths):
     pyramid_list = []
-    for length in range(list_of_lengths[0],list_of_lengths[1], list_of_lengths[2]):
+    for length in range(list_of_lengths[0], list_of_lengths[1], list_of_lengths[2]):
         pyramid_list.append(get_a_word_of_length_n(length))
     return pyramid_list
 
