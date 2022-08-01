@@ -32,8 +32,8 @@ def wordy_pyramid():
         "give_me_a_word?wordlength={length}"
     )
     pyramid_list = []
-    list_1 = list_of_words_with_lengths(list_of_lengths=[3,21,2])
-    list_2 = list_of_words_with_lengths(list_of_lengths=[20,3,-2])
+    list_1 = list_of_words_with_lengths(list_of_lengths=(3,21,2))
+    list_2 = list_of_words_with_lengths(list_of_lengths=(20,3,-2))
     pyramid_list = list_1 + list_2
     
     return pyramid_list
@@ -52,10 +52,10 @@ def get_a_word_of_length_n(length):
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pyramid_list = []
-    for length in range(list_of_lengths[0], list_of_lengths[1], list_of_lengths[2]):
-        pyramid_list.append(get_a_word_of_length_n(length))
-    return pyramid_list
+    list = []
+    for length in list_of_lengths:
+        list.append(get_a_word_of_length_n(length))
+    return list
 
 
 if __name__ == "__main__":

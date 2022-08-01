@@ -311,15 +311,15 @@
     "results": [
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n ylems"
+        "name": "exercise 1: get_a_word_of_length_n igara"
       },
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n yammadji"
+        "name": "exercise 1: get_a_word_of_length_n zabaione"
       },
       {
         "value": 1,
-        "name": "exercise 1: get_a_word_of_length_n ywca"
+        "name": "exercise 1: get_a_word_of_length_n ieee"
       },
       {
         "value": 1,
@@ -334,7 +334,7 @@
         "name": "exercise 1: list_of_words_with_lengths {word}"
       },
       {
-        "value": 0,
+        "value": 1,
         "name": "exercise 1: list_of_words_with_lengths {word}"
       },
       {
@@ -342,7 +342,7 @@
         "name": "exercise 1: wordy_pyramid has been refactored"
       },
       {
-        "value": 1,
+        "value": 0,
         "name": "Exercise 1: wordy_pyramid still works"
       },
       {
