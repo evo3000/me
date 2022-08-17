@@ -6,3 +6,5 @@ TIP: USE WHAT IS SHOW IN THE FUNCTION
 my in-class parents are good to me. Shout out to Louis
 
 MC HAMMER you can't touch this
+
+lists and ranges 

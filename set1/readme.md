@@ -5,3 +5,5 @@ https://trinket.io/blocks/abaccedb83
 
 Journal:
 Motivational messages are helping, but so will practice! 
+
+Excited to be a coding wiz
